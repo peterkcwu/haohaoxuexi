@@ -1,40 +1,7 @@
-Jd_Seckill
-=======
-> ⚠ 此项目是[python jd_seckill](https://github.com/huanghyw/jd_seckill) 的go版本实现，旨在降低使用门栏和相互学习而创建。
+学习资料
 
-**go版本的jd_seckill，京东抢茅台神器，支持跨平台，使用者请在发布页下载可执行文件，欢迎pr。**
 
-## 支持系统
 
->目前编译好的可执行文件有Windows,MacOS,Linux,arm,mips平台。
-
-## 安装
-
-方式一(推荐):
-
-```shell
-git clone https://github.com/ztino/jd_seckill.git
-cd jd_seckill
-go get
-```
-
-方式二:
-
-```shell
-go get github.com/ztino/jd_seckill
-```
-
-## 待办
-
-- 日志目前还未输出到本地日志文件保存
-- 自动化抢购支持，无需设置抢购时间
-- 跨平台桌面端支持，打算使用：https://github.com/therecipe/qt
-
-## 使用
-
-> [下载](https://github.com/ztino/jd_seckill/releases) 对应平台的可执行文件，解压，终端进入该目录。
-
-> ⚠ 0.1.4(包含)之前版本，不适用该教程，请直接执行命令，按照提示操作。
 
 ### 登录
 执行以下命令按照提示操作:
@@ -48,25 +15,25 @@ jd_seckill login
 
 执行以下命令按照提示操作:
 ```shell
-jd_seckill jdTdudfp
+jdTdudfp
 ```
 > ⚠目前实验性阶段，请勿依赖该功能
 
 ### 预约
 执行以下命令按照提示操作:
 ```shell
-jd_seckill reserve
+reserve
 ```
 
 ### 抢购
 执行以下命令按照提示操作:
 ```shell
-jd_seckill seckill
+seckill
 ```
 
 ### 退出登录
 ```shell
-jd_seckill logout
+ logout
 ```
 
 ### 获取版本号
@@ -111,14 +78,3 @@ $ zbarimg qr_code.png > qrcode.txt && qrencode -r qrcode.txt -o - -t UTF8 # 解�
 (5)其他配置
 > 请自行参考使用
 
-## 抢购流程/抢购结果
-
-- 程序开始抢购总时间为两分钟，不管有无抢购成功，都会停止，抢购详情请查阅日志和自己配置的第三方推送服务。
-
-- 第二天抢购需要修改抢购时间和重新开始抢购任务。
-
-- 先写这么多。。。
-
-## 感谢
-##### 非常感谢原作者 https://github.com/zhou-xiaojun/jd_mask 提供的代码
-##### 也非常感谢 https://github.com/wlwwu/jd_maotai 进行的优化
