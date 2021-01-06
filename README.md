@@ -1,39 +1,7 @@
-Jd_Seckill
-=======
+学习资料
 
-#### 还未收到安全通知，但是估计也快了，给大家建个Telegram群吧，茶余饭后，聊天扯淡，有条件的可以加入：https://t.me/joinchat/GsDnhtkdKJ4nbwJh
 
-> ⚠ 此项目是[python jd_seckill](https://github.com/huanghyw/jd_seckill) 的go版本实现，旨在降低使用门栏和相互学习而创建。
 
-**go版本的jd_seckill，京东抢茅台神器，支持跨平台，使用者请在发布页下载可执行文件，欢迎pr。**
-
-## 支持系统
-
->目前编译好的可执行文件有Windows,MacOS,Linux,arm,mips平台。
-
-## 安装
-
-方式一(推荐):
-
-```shell
-git clone https://github.com/ztino/jd_seckill.git
-cd jd_seckill
-go get
-```
-
-方式二:
-
-```shell
-go get github.com/ztino/jd_seckill
-```
-
-## 待办
-- 自动化预约抢购支持，程序自动去茅台页面获取下一次抢购时间
-- 跨平台桌面端支持，打算使用：https://github.com/therecipe/qt
-
-## 使用
-
-> [下载](https://github.com/ztino/jd_seckill/releases) 对应平台的可执行文件，解压，终端进入该目录。
 
 ### 登录
 执行以下命令按照提示操作:
@@ -43,31 +11,29 @@ jd_seckill login
 
 ### 自动获取eid,fp
 
-> ⚠依赖谷歌浏览器，请安装谷歌浏览器，windows下请将安装目录加入系统变量Path
+> ⚠依赖谷歌浏览器，请安装谷歌浏览器，获取到的eid和fp请手动填入配置文件
 
 执行以下命令按照提示操作:
 ```shell
-#参数--good_url商品链接必须设置，链接地址是一个可以加入购物车的商品
-jd_seckill jdTdudfp --good_url https://item.jd.com/100007959916.html
+jdTdudfp
 ```
-> ⚠获取成功后会将获取到的eid和fp写入到配置文件中
+> ⚠目前实验性阶段，请勿依赖该功能
 
 ### 预约
 执行以下命令按照提示操作:
 ```shell
-jd_seckill reserve
+reserve
 ```
 
 ### 抢购
 执行以下命令按照提示操作:
 ```shell
-#支持--run参数，将跳过抢购等待时间，直接执行抢购任务，适合10点左右未设置抢购时间的使用
-jd_seckill seckill
+seckill
 ```
 
 ### 退出登录
 ```shell
-jd_seckill logout
+ logout
 ```
 
 ### 获取版本号
@@ -76,6 +42,13 @@ jd_seckill version
 ```
 
 > ⚠ 以上命令并不是每次都需要执行的，都是可选的，具体使用请参考提示。
+
+### Linux下命令行方式显示二维码（以Ubuntu为例）
+
+```bash
+$ sudo apt-get install qrencode zbar-tools # 安装二维码解析和生成的工具，用于读取二维码并在命令行输出。
+$ zbarimg qr_code.png > qrcode.txt && qrencode -r qrcode.txt -o - -t UTF8 # 解析二维码输出到命令行窗口。
+```
 
 ## 使用教程
 
@@ -92,7 +65,7 @@ jd_seckill version
 
 (3)配置一下时间
 > 现在不强制要求同步最新时间了，程序会自动同步京东时间
-> 但要是电脑时间快慢了好几分钟的，最好还是同步一下吧
+>> 但要是电脑时间快慢了好几个小时，最好还是同步一下吧
 
 以上都是必须的.
 > tips：
@@ -100,20 +73,8 @@ jd_seckill version
 > 本代码的执行的抢购时间以本地电脑/服务器时间为准
 
 (4)修改抢购瓶数
-> 可在配置文件中找到seckill_num进行修改，默认值2瓶
+> 可在配置文件中找到seckill_num进行修改
 
-(5)抢购总时间
-> 可在配置文件中找到seckill_time进行修改，单位:分钟，默认两分钟
+(5)其他配置
+> 请自行参考使用
 
-(6)抢购任务数量
-> 可在配置文件中找到task_num进行修改，默认5个
-
-(7)每次抢购间隔时间
-> 可在配置文件中找到ticker_time进行修改，单位:毫秒，默认1500毫秒，每1000毫秒等于1秒
-
-(8)通知配置
-> 目前支持email，wechat，dingtalk，具体可查看配置文件
-
-## 感谢
-##### 非常感谢原作者 https://github.com/zhou-xiaojun/jd_mask 提供的代码
-##### 也非常感谢 https://github.com/wlwwu/jd_maotai 进行的优化
